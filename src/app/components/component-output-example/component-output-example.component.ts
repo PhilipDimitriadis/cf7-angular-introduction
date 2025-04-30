@@ -1,12 +1,11 @@
 import { Component, inject, Inject } from '@angular/core';
 import { EPerson, ManyPerson } from 'src/app/shared/interfaces/eperson';
 import { SimpleDatatableComponent } from '../simple-datatable/simple-datatable.component';
-import { PersonTableComponent } from '../person-table/person-table.component';
 import { Dialog, DialogRef, DIALOG_DATA, DialogModule} from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-component-output-example',
-  imports: [SimpleDatatableComponent],
+  imports: [SimpleDatatableComponent, DialogModule],
   templateUrl: './component-output-example.component.html',
   styleUrl: './component-output-example.component.css'
 })
@@ -59,10 +58,11 @@ export class ComponentOutputExampleComponent {
       <td class="ps-2">{{person.email}}</td>
     </tr>
     <tr>
-      <td class="fw-semibold text-end">Address</td>
+      <td class="fw-semibold text-end">Education</td>
       <td class="ps-2">{{person.education}}</td>
     </tr>
   </table>
+  <button class="btn btn-primary btn-sm" (click)="dialogRef.close()">Close</button>
   `,
   styles: [
     `
